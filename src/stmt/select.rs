@@ -189,6 +189,15 @@ impl<'a> Select<'a> {
         self
     }
 
+    pub fn pagination(self, limit: u32, offset: u32) -> Result<'a> {
+        Result {
+            data: self.into(),
+            limit: Some(clause::Limit(limit)),
+            offset: Some(clause::Offset(offset)),
+            ..Default::default()
+        }
+    }
+
     pub fn limit(self, limit: u32) -> Result<'a> {
         Result {
             data: self.into(),

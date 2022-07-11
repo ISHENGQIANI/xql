@@ -5,13 +5,13 @@ members = [
 ]
 
 [package]
-name = "xql"
-version = "0.2.7"
+name = "qians_xql"
+version = "0.2.8"
 readme = "README.md"
 edition = "2021"
 description = "SQL query builder"
-homepage = "https://github.com/arch-mage/xql"
-repository = "https://github.com/arch-mage/xql"
+homepage = "https://github.com/ISHENGQIANI/xql"
+repository = "https://github.com/ISHENGQIANI/xql"
 documentation = "https://docs.rs/xql"
 license = "GPL-3.0-or-later"
 keywords = ["database", "sqlx", "postgres", "mysql", "sqlite"]
