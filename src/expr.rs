@@ -92,6 +92,8 @@ mod tests {
     use crate::func::avg;
     use crate::func::count;
     use crate::func::sum;
+    use crate::func::min;
+    use crate::func::max;
     use crate::item::ColumnRef;
     use crate::item::Ident;
     use crate::item::Order;
@@ -158,9 +160,11 @@ mod tests {
 
     #[test]
     fn func_call() {
-        assert_eq!(sum("num").to_string(), "sum(num)");
-        assert_eq!(count("id").to_string(), "count(id)");
-        assert_eq!(avg("age").to_string(), "avg(age)");
+        assert_eq!(sum("num").to_string(), "SUM(num)");
+        assert_eq!(count("id").to_string(), "COUNT(id)");
+        assert_eq!(avg("age").to_string(), "AVG(age)");
+        assert_eq!(min("age").to_string(), "MIN(age)");
+        assert_eq!(max("age").to_string(), "MAX(age)");
     }
 
     #[test]

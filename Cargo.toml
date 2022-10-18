@@ -6,7 +6,7 @@ members = [
 
 [package]
 name = "qians_xql"
-version = "0.2.8"
+version = "0.2.9"
 readme = "README.md"
 edition = "2021"
 description = "SQL query builder"

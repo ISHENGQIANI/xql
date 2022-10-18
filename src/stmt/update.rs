@@ -58,9 +58,9 @@ impl<'a> Update<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::update;
-    /// use xql::and;
-    /// use xql::ge;
+    /// use qians_xql::update;
+    /// use qians_xql::and;
+    /// use qians_xql::ge;
     ///
     /// let query1 = update("book")
     ///     .set("id", 1)
@@ -91,7 +91,7 @@ impl<'a> Update<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::update;
+    /// use qians_xql::update;
     ///
     /// let query1 = update("book")
     ///     .set("id", 1)

@@ -2,9 +2,9 @@ use sqlx::Pool;
 use sqlx::Postgres;
 
 use sqlx::Row;
-use xql::blanket::ExprExt;
-use xql::blanket::StmtExt;
-use xql::select;
+use qians_xql::blanket::ExprExt;
+use qians_xql::blanket::StmtExt;
+use qians_xql::select;
 
 #[tokio::test]
 async fn test() -> Result<(), Box<dyn std::error::Error>> {

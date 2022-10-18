@@ -22,7 +22,10 @@ macro_rules! gen_funcs {
             where
                 A: Into<Expr<'a>>,
             {
-                func(stringify!($func), [arg.into()])
+                let mut s = stringify!($func).to_string();
+                s.make_ascii_uppercase();
+                let s: &'static str = Box::leak(s.into_boxed_str());
+                func(s, [arg.into()])
             }
         )+
     };

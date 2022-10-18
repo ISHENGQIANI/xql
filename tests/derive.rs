@@ -1,6 +1,6 @@
 #![allow(dead_code)]
 
-use xql::Schema;
+use qians_xql::schema::Schema;
 
 #[derive(Schema)]
 struct Book {

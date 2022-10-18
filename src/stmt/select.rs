@@ -25,7 +25,7 @@ impl<'a> Select<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::select;
+    /// use qians_xql::select;
     ///
     /// let value = "value".to_string();
     /// let query1 = select(("id", &value, 2));
@@ -47,8 +47,8 @@ impl<'a> Select<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::select;
-    /// use xql::eq;
+    /// use qians_xql::select;
+    /// use qians_xql::eq;
     ///
     /// let query1 = select([("book", "id"), ("author", "id")])
     ///     .from(["book", "author"])
@@ -83,9 +83,9 @@ impl<'a> Select<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::select;
-    /// use xql::and;
-    /// use xql::ge;
+    /// use qians_xql::select;
+    /// use qians_xql::and;
+    /// use qians_xql::ge;
     ///
     /// let query1 = select(["id", "year", "name"])
     ///     .from("book")
@@ -114,8 +114,8 @@ impl<'a> Select<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::select;
-    /// use xql::eq;
+    /// use qians_xql::select;
+    /// use qians_xql::eq;
     ///
     /// let query1 = select(["id", "title"])
     ///     .from("book")
@@ -149,9 +149,9 @@ impl<'a> Select<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::select;
-    /// use xql::and;
-    /// use xql::ge;
+    /// use qians_xql::select;
+    /// use qians_xql::and;
+    /// use qians_xql::ge;
     ///
     /// let query1 = select(["id", "year", "name"])
     ///     .from("book")
@@ -241,6 +241,6 @@ fn test() {
         .group_by([("data", "id")])
         .having(true)
         .order_by([ops::desc(("data", "id"))]);
-    let expect = "SELECT data.id, data.value, count(id), max(age), min(age), avg(age) FROM public.data, unnest(data.value) WHERE data.id = 1 AND data.name = \'name\' GROUP BY data.id HAVING true ORDER BY data.id DESC";
+    let expect = "SELECT data.id, data.value, COUNT(id), MAX(age), MIN(age), AVG(age) FROM public.data, unnest(data.value) WHERE data.id = 1 AND data.name = \'name\' GROUP BY data.id HAVING true ORDER BY data.id DESC";
     assert_eq!(query.to_string(), expect);
 }

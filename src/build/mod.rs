@@ -70,7 +70,8 @@ impl Dialect for Display {
     fn quote_ident(name: &str, buff: &mut String) {
         let mut chars = name.chars();
         if chars.next().map(|c| !c.is_ascii_digit()).unwrap_or(true)
-            && chars.all(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || c == '_')
+            && chars.all(|c| c.is_ascii_lowercase() || c.is_ascii_uppercase() || c.is_ascii_digit() || c == '_')
+        // && chars.all(|c| c.is_ascii_lowercase() || c.is_ascii_digit() || c == '_')
         {
             buff.push_str(name);
         } else {

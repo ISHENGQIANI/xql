@@ -766,7 +766,7 @@ dependencies = [
 
 [[package]]
 name = "qians_xql"
-version = "0.2.8"
+version = "0.2.9"
 dependencies = [
  "chrono",
  "rust_decimal",

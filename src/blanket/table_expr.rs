@@ -2,12 +2,12 @@ use crate::table_expr::TableExpr;
 
 macro_rules! gen_method {
     ($join:ident cond) => {
-        #[doc = concat!("A short hand for [`xql::ops::", stringify!($join), "`]", "(crate::ops::", stringify!($join), ").")]
+        #[doc = concat!("A short hand for [`qians_xql::ops::", stringify!($join), "`]", "(crate::ops::", stringify!($join), ").")]
         #[doc = ""]
         #[doc = "```"]
-        #[doc = "use xql::ops::eq;"]
-        #[doc = concat!("use xql::ops::", stringify!($join), ";")]
-        #[doc = concat!("use xql::blanket::TableExprExt;")]
+        #[doc = "use qians_xql::ops::eq;"]
+        #[doc = concat!("use qians_xql::ops::", stringify!($join), ";")]
+        #[doc = concat!("use qians_xql::blanket::TableExprExt;")]
         #[doc = ""]
         #[doc = "assert_eq!("]
         #[doc = concat!(r#"    "category"."#, stringify!($join), r#"("book", eq(("category", "id"), ("book", "category_id"))),"#)]
@@ -25,12 +25,12 @@ macro_rules! gen_method {
     };
 
     ($join:ident) => {
-        #[doc = concat!("A short hand for [`xql::ops::", stringify!($join), "`]", "(crate::ops::", stringify!($join), ").")]
+        #[doc = concat!("A short hand for [`qians_xql::ops::", stringify!($join), "`]", "(crate::ops::", stringify!($join), ").")]
         #[doc = ""]
         #[doc = "```"]
-        #[doc = "use xql::ops::eq;"]
-        #[doc = concat!("use xql::ops::", stringify!($join), ";")]
-        #[doc = concat!("use xql::blanket::TableExprExt;")]
+        #[doc = "use qians_xql::ops::eq;"]
+        #[doc = concat!("use qians_xql::ops::", stringify!($join), ";")]
+        #[doc = concat!("use qians_xql::blanket::TableExprExt;")]
         #[doc = ""]
         #[doc = "assert_eq!("]
         #[doc = concat!(r#"    "category"."#, stringify!($join), r#"("book"),"#)]

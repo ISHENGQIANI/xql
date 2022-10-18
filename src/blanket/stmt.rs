@@ -1,11 +1,11 @@
 macro_rules! gen_method {
     ($method:ident) => {
-        #[doc = concat!("A short hand for [`xql::stmt::", stringify!($method), "`]", "(crate::stmt::", stringify!($method), ").")]
+        #[doc = concat!("A short hand for [`qians_xql::stmt::", stringify!($method), "`]", "(crate::stmt::", stringify!($method), ").")]
         #[doc = ""]
         #[doc = "```"]
-        #[doc = concat!("use xql::select;")]
-        #[doc = concat!("use xql::", stringify!($method), ";")]
-        #[doc = concat!("use xql::blanket::ResultExt;")]
+        #[doc = concat!("use qians_xql::select;")]
+        #[doc = concat!("use qians_xql::", stringify!($method), ";")]
+        #[doc = concat!("use qians_xql::blanket::ResultExt;")]
         #[doc = ""]
         #[doc = "assert_eq!("]
         #[doc = concat!("    ", "select([1]).", stringify!($method), "(select([2])),")]

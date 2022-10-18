@@ -145,7 +145,7 @@ crate::macros::gen_display!(Stmt<'_>);
 /// # Examples
 ///
 /// ```
-/// use xql::select;
+/// use qians_xql::select;
 ///
 /// assert_eq!(
 ///     select(("id", "name")).from("book").to_string(),
@@ -168,7 +168,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::values;
+/// use qians_xql::values;
 ///
 /// assert_eq!(
 ///     values([
@@ -195,7 +195,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::insert;
+/// use qians_xql::insert;
 ///
 /// assert_eq!(
 ///     insert("book", ["id", "name"])
@@ -225,8 +225,8 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::delete;
-/// use xql::eq;
+/// use qians_xql::delete;
+/// use qians_xql::eq;
 ///
 /// assert_eq!(
 ///     delete("book")
@@ -252,8 +252,8 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::update;
-/// use xql::eq;
+/// use qians_xql::update;
+/// use qians_xql::eq;
 ///
 /// assert_eq!(
 ///     update("book")
@@ -300,8 +300,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::union;
-    /// use xql::select;
+    /// use qians_xql::union;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     union(select([1]), select([2])).to_string(),
@@ -315,8 +315,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::union_all;
-    /// use xql::select;
+    /// use qians_xql::union_all;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     union_all(select([1]), select([2])).to_string(),
@@ -330,8 +330,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::except;
-    /// use xql::select;
+    /// use qians_xql::except;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     except(select([1]), select([2])).to_string(),
@@ -345,8 +345,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::except_all;
-    /// use xql::select;
+    /// use qians_xql::except_all;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     except_all(select([1]), select([2])).to_string(),
@@ -360,8 +360,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::intersect;
-    /// use xql::select;
+    /// use qians_xql::intersect;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     intersect(select([1]), select([2])).to_string(),
@@ -375,8 +375,8 @@ generate_binary_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::intersect_all;
-    /// use xql::select;
+    /// use qians_xql::intersect_all;
+    /// use qians_xql::select;
     /// 
     /// assert_eq!(
     ///     intersect_all(select([1]), select([2])).to_string(),

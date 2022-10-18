@@ -24,9 +24,9 @@ impl<'a> Delete<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::delete;
-    /// use xql::and;
-    /// use xql::ge;
+    /// use qians_xql::delete;
+    /// use qians_xql::and;
+    /// use qians_xql::ge;
     ///
     /// let query1 = delete("book")
     ///     .filter(and(ge("id", 1), ge("year", 1970)));
@@ -55,7 +55,7 @@ impl<'a> Delete<'a> {
     /// # Examples
     ///
     /// ```
-    /// use xql::delete;
+    /// use qians_xql::delete;
     ///
     /// let query1 = delete("book")
     ///     .returning(["id", "name"]);

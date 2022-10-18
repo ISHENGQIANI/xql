@@ -1,17 +1,17 @@
 use crate::expr::Expr;
-use crate::table_expr::TableExpr;
 use crate::item::Field;
-use crate::item::Table;
 use crate::item::Ident;
 use crate::item::Order;
 use crate::item::Sort;
+use crate::item::Table;
+use crate::table_expr::TableExpr;
 
 /// Make an alias out of an expression.
 ///
 /// # Examples
 ///
 /// ```
-/// use xql::as_field;
+/// use qians_xql::as_field;
 ///
 /// assert_eq!(as_field(1, "num").to_string(), "1 AS num");
 /// ```
@@ -32,7 +32,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::as_table;
+/// use qians_xql::as_table;
 ///
 /// assert_eq!(as_table("user", "person").to_string(), "user AS person");
 /// ```
@@ -53,7 +53,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::{paren, not, and};
+/// use qians_xql::{paren, not, and};
 ///
 /// assert_eq!(not(paren(and(true, false))).to_string(), "NOT (true AND false)");
 /// ```
@@ -70,7 +70,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::asc;
+/// use qians_xql::asc;
 ///
 /// assert_eq!(asc("id").to_string(), "id ASC");
 /// assert_eq!(asc(("user", "id")).to_string(), "user.id ASC");
@@ -85,7 +85,7 @@ pub fn asc<'a, E: Into<Expr<'a>>>(expr: E) -> Order<'a> {
 /// # Examples
 ///
 /// ```
-/// use xql::desc;
+/// use qians_xql::desc;
 ///
 /// assert_eq!(desc("id").to_string(), "id DESC");
 /// assert_eq!(desc(("user", "id")).to_string(), "user.id DESC");
@@ -100,7 +100,7 @@ pub fn desc<'a, E: Into<Expr<'a>>>(expr: E) -> Order<'a> {
 /// # Examples
 ///
 /// ```
-/// use xql::binop;
+/// use qians_xql::binop;
 ///
 /// assert_eq!(binop(1, "+", 2).to_string(), "1 + 2");
 /// ```
@@ -119,7 +119,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::preop;
+/// use qians_xql::preop;
 ///
 /// assert_eq!(preop("NOT", true).to_string(), "NOT true");
 /// ```
@@ -136,7 +136,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::postop;
+/// use qians_xql::postop;
 ///
 /// assert_eq!(postop("id", "ISNULL").to_string(), "id ISNULL");
 /// ```
@@ -172,7 +172,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::add;
+    /// use qians_xql::add;
     ///
     /// assert_eq!(add(1, 2).to_string(), "1 + 2");
     /// ```
@@ -182,7 +182,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::sub;
+    /// use qians_xql::sub;
     ///
     /// assert_eq!(sub(1, 2).to_string(), "1 - 2");
     /// ```
@@ -192,7 +192,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::mul;
+    /// use qians_xql::mul;
     ///
     /// assert_eq!(mul(1, 2).to_string(), "1 * 2");
     /// ```
@@ -202,7 +202,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::div;
+    /// use qians_xql::div;
     ///
     /// assert_eq!(div(1, 2).to_string(), "1 / 2");
     /// ```
@@ -212,7 +212,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::rem;
+    /// use qians_xql::rem;
     ///
     /// assert_eq!(rem(1, 2).to_string(), "1 % 2");
     /// ```
@@ -222,7 +222,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::eq;
+    /// use qians_xql::eq;
     ///
     /// assert_eq!(eq(1, 2).to_string(), "1 = 2");
     /// ```
@@ -232,7 +232,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::ne;
+    /// use qians_xql::ne;
     ///
     /// assert_eq!(ne(1, 2).to_string(), "1 <> 2");
     /// ```
@@ -242,7 +242,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::gt;
+    /// use qians_xql::gt;
     ///
     /// assert_eq!(gt(1, 2).to_string(), "1 > 2");
     /// ```
@@ -252,7 +252,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::ge;
+    /// use qians_xql::ge;
     ///
     /// assert_eq!(ge(1, 2).to_string(), "1 >= 2");
     /// ```
@@ -262,7 +262,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::lt;
+    /// use qians_xql::lt;
     ///
     /// assert_eq!(lt(1, 2).to_string(), "1 < 2");
     /// ```
@@ -272,7 +272,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::le;
+    /// use qians_xql::le;
     ///
     /// assert_eq!(le(1, 2).to_string(), "1 <= 2");
     /// ```
@@ -282,7 +282,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::and;
+    /// use qians_xql::and;
     ///
     /// assert_eq!(and(true, false).to_string(), "true AND false");
     /// ```
@@ -292,7 +292,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::or;
+    /// use qians_xql::or;
     ///
     /// assert_eq!(or(true, false).to_string(), "true OR false");
     /// ```
@@ -302,7 +302,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::like;
+    /// use qians_xql::like;
     ///
     /// assert_eq!(like("name", &"%name".to_string()).to_string(), "name LIKE '%name'");
     /// ```
@@ -312,7 +312,7 @@ generate_binop_funcs!(BinOps {
     /// # Examples
     ///
     /// ```
-    /// use xql::ilike;
+    /// use qians_xql::ilike;
     ///
     /// assert_eq!(ilike("name", &"%name".to_string()).to_string(), "name ILIKE '%name'");
     /// ```
@@ -324,7 +324,7 @@ generate_binop_funcs!(BinOps {
 /// # Examples
 ///
 /// ```
-/// use xql::not;
+/// use qians_xql::not;
 ///
 /// assert_eq!(not(true).to_string(), "NOT true");
 /// ```
@@ -341,7 +341,7 @@ where
 /// # Examples
 ///
 /// ```
-/// use xql::isnull;
+/// use qians_xql::isnull;
 ///
 /// assert_eq!(isnull(None::<i32>).to_string(), "null ISNULL");
 /// ```
@@ -389,8 +389,8 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::eq;
-    /// use xql::join;
+    /// use qians_xql::eq;
+    /// use qians_xql::join;
     /// 
     /// assert_eq!(
     ///     join("category", "book", eq(("category", "id"), ("book", "category_id"))).to_string(),
@@ -404,8 +404,8 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::eq;
-    /// use xql::left_join;
+    /// use qians_xql::eq;
+    /// use qians_xql::left_join;
     /// 
     /// assert_eq!(
     ///     left_join("category", "book", eq(("category", "id"), ("book", "category_id"))).to_string(),
@@ -419,8 +419,8 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::eq;
-    /// use xql::right_join;
+    /// use qians_xql::eq;
+    /// use qians_xql::right_join;
     /// 
     /// assert_eq!(
     ///     right_join("category", "book", eq(("category", "id"), ("book", "category_id"))).to_string(),
@@ -434,8 +434,8 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::eq;
-    /// use xql::full_join;
+    /// use qians_xql::eq;
+    /// use qians_xql::full_join;
     /// 
     /// assert_eq!(
     ///     full_join("category", "book", eq(("category", "id"), ("book", "category_id"))).to_string(),
@@ -449,7 +449,7 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::natural_join;
+    /// use qians_xql::natural_join;
     /// 
     /// assert_eq!(
     ///     natural_join("category", "book").to_string(),
@@ -463,7 +463,7 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::natural_left_join;
+    /// use qians_xql::natural_left_join;
     /// 
     /// assert_eq!(
     ///     natural_left_join("category", "book").to_string(),
@@ -477,7 +477,7 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::natural_right_join;
+    /// use qians_xql::natural_right_join;
     /// 
     /// assert_eq!(
     ///     natural_right_join("category", "book").to_string(),
@@ -491,7 +491,7 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::natural_full_join;
+    /// use qians_xql::natural_full_join;
     /// 
     /// assert_eq!(
     ///     natural_full_join("category", "book").to_string(),
@@ -505,7 +505,7 @@ generate_join_funcs!(
     /// # Examples
     /// 
     /// ```
-    /// use xql::cross_join;
+    /// use qians_xql::cross_join;
     /// 
     /// assert_eq!(
     ///     cross_join("category", "book").to_string(),
